@@ -1,0 +1,18 @@
+# Client torrc
+TestingTorNetwork 1
+DataDirectory /var/lib/tor
+RunAsDaemon 0
+ConnLimit 60
+Nickname CLIENTx
+ShutdownWaitLength 0
+PidFile /var/lib/tor/pid
+Log notice file /var/lib/tor/notice.log
+Log info file /var/lib/tor/info.log
+ProtocolWarnings 1
+SafeLogging 0
+DisableDebuggerAttachment 0
+DirAuthority AUTH orport=5000 no-v2 hs v3ident=5FAD421F59397E2A154F822A7375619A5BBDCB81 177.98.55.160:7000 E72F5372982AE4A23CE39FB73601F4CF94CE04D3
+
+SocksPort 9050
+OrPort 500x
+Address 172.16.70.1x

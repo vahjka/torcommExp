@@ -1,0 +1,34 @@
+# Directory Authority torrc
+TestingTorNetwork 1
+DataDirectory /var/lib/tor
+RunAsDaemon 0
+ConnLimit 60
+Nickname AUTH
+ShutdownWaitLength 0
+PidFile /var/lib/tor/pid
+Log notice file /var/lib/tor/notice.log
+Log info file /var/lib/tor/info.log
+ProtocolWarnings 1
+SafeLogging 0
+DisableDebuggerAttachment 0
+DirAuthority AUTH orport=5000 no-v2 v3ident=5FAD421F59397E2A154F822A7375619A5BBDCB81 172.16.70.10:7000 E72F5372982AE4A23CE39FB73601F4CF94CE04D3
+DirAuthority AUTH orport=5000 no-v2 v3ident=456B6B7D7316635CB5859A862090BA4460D06C55 172.16.70.11:7000 3865FA3CD55A910751858DB15E756FC883313491
+SocksPort 0
+OrPort 5000
+Address 172.16.70.11
+DirPort 7000
+
+#Exit policy to allow exiting to IPv4 LAN
+ExitPolicy accept 172.16.70.0/24:*
+
+AuthoritativeDirectory 1
+V3AuthoritativeDirectory 1
+ContactInfo dg.maia01@gmail.com
+
+V3AuthVotingInterval 5 minutes
+V3AuthVoteDelay 1 minutes
+V3AuthDistDelay 1 minutes
+V3AuthNIntervalsValid 2
+
+TestingDirAuthVoteExit 172.16.70.0/24
+TestingDirAuthVoteGuard 172.16.70.0/24
